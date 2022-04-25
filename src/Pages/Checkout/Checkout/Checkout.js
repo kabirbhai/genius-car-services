@@ -20,13 +20,15 @@ const Checkout = () => {
       address: e.target.address.value,
       phone: e.target.phone.value,
     };
-    axios.post("http://localhost:5000/order", order).then((response) => {
-      const { data } = response;
-      if (data?.insertedId) {
-        toast("your order placed");
-      }
-      e.target.reset();
-    });
+    axios
+      .post("https://gentle-brook-80299.herokuapp.com/order", order)
+      .then((response) => {
+        const { data } = response;
+        if (data?.insertedId) {
+          toast("your order placed");
+        }
+        e.target.reset();
+      });
   };
 
   // SET USESTATE AND ACCESS INPUT DATA
